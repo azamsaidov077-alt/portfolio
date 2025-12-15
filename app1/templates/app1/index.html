@@ -1,613 +1,1501 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Azam Saidov - Full Stack Django Developer</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if profile %}
+            {{ profile.name }} - {{ profile.title }}
+        {% else %}
+            Azam Saidov - Full Stack Django Developer
+        {% endif %}
+    </title>
 
-    <link rel="stylesheet" href="{% static 'css/open-iconic-bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'app1/images/favicon.ico' %}">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Azam Saidov</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	          <li class="nav-item"><a href="/api/todos/" class="nav-link"><span>TODO API</span></a></li>
-	          <li class="nav-item"><a href="/swagger/" class="nav-link"><span>API Docs</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
-	  
-	  <section id="home-section" class="hero">
-		  <div class="home-slider owl-carousel">
-	      <div class="slider-item">
-	      	<div class="overlay"></div>
-	        <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url({% static 'images/my-photo.jpg' %});">
-	          		<div class="overlay"></div>
-	          	</div>
-		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello! I'm</span>
-			            <h1 class="mb-4 mt-3"><span>Azam Saidov</span></h1>
-			            <h2 class="mb-4">Full Stack Django Developer</h2>
-			            <p class="mb-4">10+ month experience in Django,PostgreSQL</p>
-			            <p>
-			            	<a href="#contact-section" class="btn btn-primary py-3 px-4">Hire me</a> 
-			            	<a href="#projects-section" class="btn btn-white btn-outline-white py-3 px-4">My Projects</a>
-			            	<a href="/api/todos/" class="btn btn-success py-3 px-4">TODO API Demo</a>
-			            </p>
-			            <div class="social-icons mt-4">
-			            	<a href="https://github.com/azamsaidov077-alt" class="mr-3"><i class="fab fa-github fa-2x"></i></a>
-			            	<a href="https://linkedin.com/in/azamsaidov" class="mr-3"><i class="fab fa-linkedin fa-2x"></i></a>
-			            	<a href="https://t.me/azamsaidov" class="mr-3"><i class="fab fa-telegram fa-2x"></i></a>
-			            	<a href="mailto:azamsaidov077@gmail.com" class="mr-3"><i class="fas fa-envelope fa-2x"></i></a>
-			            </div>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
-	      </div>
-	    </div>
-    </section>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-    	<div class="container">
-    		<div class="row d-flex">
-    			<div class="col-md-6 col-lg-5 d-flex">
-    				<div class="img-about img d-flex align-items-stretch">
-    					<div class="overlay"></div>
-	    				<div class="img d-flex align-self-stretch align-items-center" style="background-image:url({% static 'images/about-me.jpg' %});">
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-    				<div class="row justify-content-start pb-3">
-		          <div class="col-md-12 heading-section ftco-animate">
-		          	<h1 class="big">About</h1>
-		            <h2 class="mb-4">About Me</h2>
-		            <p>I'm a passionate Full Stack Developer specializing in Django. I build scalable web applications, REST APIs, and enjoy solving complex problems with clean code.</p>
-		            <ul class="about-info mt-4 px-md-0 px-2">
-		            	<li class="d-flex"><span>Name:</span> <span>Azam Saidov</span></li>
-		            	<li class="d-flex"><span>Date of birth:</span> <span>June 6, 2007</span></li>
-		            	<li class="d-flex"><span>Address:</span> <span>Bukhara, Uzbekistan</span></li>
-		            	<li class="d-flex"><span>Email:</span> <span>azamsaidov077@gmail.com</span></li>
-		            	<li class="d-flex"><span>Phone: </span> <span>+998 93 620 62 22</span></li>
-		            	<li class="d-flex"><span>Freelance: </span> <span>Available</span></li>
-		            </ul>
-		          </div>
-		        </div>
-	          <div class="counter-wrap ftco-animate d-flex mt-md-3">
-              <div class="text">
-              	<p class="mb-4">
-	                <span class="number" data-number="50">0</span>
-	                <span>Projects Completed</span>
-                </p>
-                <p><a href="{% static 'files/Azam-Saidov-CV.pdf' %}" class="btn btn-primary py-3 px-3" download>
-                	<i class="fas fa-download"></i> Download CV
-                </a></p>
-              </div>
-	          </div>
-	        </div>
-        </div>
-    	</div>
-    </section>
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
 
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">My Resume</h2>
-            <p>My education and work experience in web development</p>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2022-Present</span>
-    					<h2>Full Stack Developer</h2>
-    					<span class="position">Freelance / Remote</span>
-    					<p class="mt-4">Building web applications using Django, and PostgreSQL. Working with clients worldwide to deliver high-quality solutions.</p>
-    				</div>
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2021-2022</span>
-    					<h2>Backend Developer</h2>
-    					<span class="position">Tech Company, Tashkent</span>
-    					<p class="mt-4">Developed REST APIs with Django REST Framework, implemented authentication systems, and optimized database performance.</p>
-    				</div>
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2020-2021</span>
-    					<h2>Junior Django Developer</h2>
-    					<span class="position">Startup, Tashkent</span>
-    					<p class="mt-4">Learned Django framework, contributed to team projects, and gained experience in web development best practices.</p>
-    				</div>
-    			</div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2020-2021</span>
-    					<h2>Najot Ta'lim</h2>
-    					<span class="position">Django & DRF Course</span>
-    					<p class="mt-4">Completed intensive course in Django and Django REST Framework. Built multiple projects including e-commerce and social media platforms.</p>
-    				</div>
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2016-2020</span>
-    					<h2>Bachelor's Degree</h2>
-    					<span class="position">Tashkent University of IT</span>
-    					<p class="mt-4">Computer Science degree with focus on software engineering, algorithms, and database systems.</p>
-    				</div>
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">Certifications</span>
-    					<h2>Online Courses</h2>
-    					<span class="position">Udemy, Coursera</span>
-    					<p class="mt-4">• Django for Beginners<br>• React & Redux<br>• Docker & DevOps<br>• PostgreSQL Advanced</p>
-    				</div>
-    			</div>
-    		</div>
-    		<div class="row justify-content-center mt-5">
-    			<div class="col-md-6 text-center ftco-animate">
-    				<p><a href="{% static 'files/Azam-Saidov-CV.pdf' %}" class="btn btn-primary py-4 px-5" download>
-    					<i class="fas fa-download"></i> Download Full CV
-    				</a></p>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-    <section class="ftco-section" id="services-section">
-    	<div class="container">
-    		<div class="row justify-content-center py-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Services</h1>
-            <h2 class="mb-4">My Services</h2>
-            <p>Professional web development services I provide</p>
-          </div>
-        </div>
-    		<div class="row">
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="fas fa-code"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Backend Development</h3>
-								<p>Django, Flask, REST APIs, Database Design</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="fab fa-react"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Frontend Development</h3>
-								<p>React, Vue.js, JavaScript, Bootstrap</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="fas fa-mobile-alt"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Responsive Design</h3>
-								<p>Mobile-friendly, Cross-browser compatible</p>
-							</div>
-						</a>
-					</div>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
 
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="fas fa-database"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Database Design</h3>
-								<p>PostgreSQL, MySQL, MongoDB, Optimization</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="fab fa-docker"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">DevOps & Deployment</h3>
-								<p>Docker, CI/CD, AWS, Nginx, Gunicorn</p>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="fas fa-tools"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">API Integration</h3>
-								<p>Third-party APIs, Payment gateways, Social auth</p>
-							</div>
-						</a>
-					</div>
-				</div>
-    	</div>
-    </section>
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
 
-		<section class="ftco-section" id="skills-section">
-			<div class="container">
-				<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Skills</h1>
-            <h2 class="mb-4">Technical Skills</h2>
-            <p>Technologies and tools I work with</p>
-          </div>
-        </div>
-				<div class="row">
-					<div class="col-md-6 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Python/Django</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="95"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:95%">
-							    <span>95%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>JavaScript/React</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="85"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-							    <span>85%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>PostgreSQL/MySQL</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="90"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-							    <span>90%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>HTML5/CSS3/Bootstrap</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="90"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-							    <span>90%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Docker & DevOps</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="80"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-							    <span>80%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>REST API Development</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="95"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:95%">
-							    <span>95%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+        a:hover {
+            color: #0056b3;
+        }
 
-    <section class="ftco-section ftco-project" id="projects-section">
-    	<div class="container">
-    		<div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">My Projects</h2>
-            <p>Some of my recent work</p>
-          </div>
-        </div>
-    		<div class="row">
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/todo-api-project.jpg' %});">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="/api/todos/">TODO API with JWT</a></h3>
-	    					<span>Django REST Framework, JWT Auth, Phone Verification</span>
-	    					<div class="project-links mt-3">
-	    						<a href="/api/todos/" class="btn btn-sm btn-primary">Live Demo</a>
-	    						<a href="https://github.com/azamsaidov077-alt/todolist" class="btn btn-sm btn-outline-light">GitHub</a>
-	    					</div>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/ecommerce-project.jpg' %});">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">E-commerce Platform</a></h3>
-	    					<span>Django, React, Stripe, Redis</span>
-	    				</div>
-    				</div>
-  				</div>
+        .btn {
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
-    			<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/blog-project.jpg' %});">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Blog Platform</a></h3>
-	    					<span>Django, CKEditor, PostgreSQL</span>
-	    				</div>
-    				</div>
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
 
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/social-media-project.jpg' %});">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Social Media App</a></h3>
-	    					<span>Django, WebSockets, React Native</span>
-	    				</div>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="row">
-    					<div class="col-md-12">
-		    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/realestate-project.jpg' %});">
-		    					<div class="overlay"></div>
-			    				<div class="text text-center p-4">
-			    					<h3><a href="#">Real Estate Portal</a></h3>
-			    					<span>Django, Google Maps API, PostgreSQL</span>
-			    				</div>
-		    				</div>
-	    				</div>
-	    				<div class="col-md-12">
-		    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/learning-platform.jpg' %});">
-		    					<div class="overlay"></div>
-			    				<div class="text text-center p-4">
-			    					<h3><a href="#">Learning Platform</a></h3>
-			    					<span>Django, Video Streaming, Payments</span>
-			    				</div>
-		    				</div>
-	    				</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </section>
+        .btn-primary:hover {
+            background: #0056b3;
+            border-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
 
-    <section class="ftco-section ftco-hireme img margin-top" style="background-image: url({% static 'images/hire-me-bg.jpg' %})">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-7 ftco-animate text-center">
-						<h2>I'm <span>Available</span> for freelance work</h2>
-						<p>Let's build something amazing together. Contact me for your next project.</p>
-						<p class="mb-0">
-							<a href="#contact-section" class="btn btn-primary py-3 px-5">Hire Me</a>
-							<a href="/api/todos/" class="btn btn-success py-3 px-5">Check My API</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
+        .btn-danger {
+            background: var(--danger-color);
+            border-color: var(--danger-color);
+        }
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-      	<div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
-            <p>Get in touch for collaborations or questions</p>
-          </div>
-        </div>
+        .btn-danger:hover {
+            background: #c82333;
+            border-color: #bd2130;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
 
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-4">Address</h3>
-	            <p>Bukhara, Uzbekistan</p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-4">Phone Number</h3>
-	            <p><a href="tel:+998901234567">+998 93 620 62 22</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:azamsaidov077@gmail.com">azamsaidov077@gmail.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-4">Website</h3>
-	            <p><a href="https://azamsaidov.uz">azamsaidov.uz</a></p>
-	          </div>
-          </div>
-        </div>
+        /* Navbar Styles */
+        .navbar {
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-        <div class="row no-gutters block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-4 p-md-5 contact-form" id="contactForm">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name" required>
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Your Email" required>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject" required>
-              </div>
-              <div class="form-group">
-                <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          </div>
+        .navbar.scrolled {
+            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
 
-          <div class="col-md-6 d-flex">
-          	<div class="img" style="background-image: url({% static 'images/contact-me.jpg' %});"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-		
-    <footer class="ftco-footer ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Azam Saidov</h2>
-              <p>Full Stack Developer specializing in Django and React. Building modern web applications with clean code and best practices.</p>
-              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-                <li class="ftco-animate"><a href="https://github.com/azamsaidov077-alt"><span class="fab fa-github"></span></a></li>
-                <li class="ftco-animate"><a href="https://linkedin.com/in/azamsaidov"><span class="fab fa-linkedin"></span></a></li>
-                <li class="ftco-animate"><a href="https://t.me/azamsaidov"><span class="fab fa-telegram"></span></a></li>
-                <li class="ftco-animate"><a href="mailto:azamsaidov077@gmail.com"><span class="fas fa-envelope"></span></a></li>
-              </ul>
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color) !important;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 0 100px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Section Common Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-info li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+        }
+
+        .about-info li:last-child {
+            border-bottom: none;
+        }
+
+        .about-info strong {
+            min-width: 150px;
+            color: var(--dark-color);
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: var(--light-color);
+        }
+
+        .skill-item {
+            margin-bottom: 30px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .skill-percentage {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+            background: #e9ecef;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* Services Section */
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 35px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: var(--light-color);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-tech {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Experience & Education */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 20px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -50px;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+        }
+
+        .contact-info {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 15px;
+            height: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h5::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #b0b0b0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #b0b0b0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .profile-img {
+                width: 250px;
+                height: 250px;
+                margin-top: 30px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-content::after {
+                left: -40px !important;
+            }
+        }
+
+        /* Alert Messages */
+        .alert {
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                {% if profile %}
+                    {{ profile.name }}
+                {% else %}
+                    Azam Saidov
+                {% endif %}
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item">
+                        <a href="{% url 'download_portfolio' %}" class="btn btn-danger btn-sm ms-2">
+                            <i class="fas fa-download me-1"></i> Download CV
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/" class="btn btn-warning btn-sm ms-2">
+                            <i class="fas fa-lock me-1"></i> Admin
+                        </a>
+                    </li>
+                </ul>
             </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Links</h2>
-              <ul class="list-unstyled">
-                <li><a href="#home-section"><span class="icon-long-arrow-right mr-2"></span>Home</a></li>
-                <li><a href="#about-section"><span class="icon-long-arrow-right mr-2"></span>About</a></li>
-                <li><a href="#services-section"><span class="icon-long-arrow-right mr-2"></span>Services</a></li>
-                <li><a href="#projects-section"><span class="icon-long-arrow-right mr-2"></span>Projects</a></li>
-                <li><a href="#contact-section"><span class="icon-long-arrow-right mr-2"></span>Contact</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Services</h2>
-              <ul class="list-unstyled">
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Backend Development</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Frontend Development</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>API Development</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Database Design</a></li>
-                <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>DevOps & Deployment</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Question?</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">Tashkent, Uzbekistan</span></li>
-	                <li><a href="tel:+998936206222"><span class="icon icon-phone"></span><span class="text">+998 93 620 62 22</span></a></li>
-	                <li><a href="mailto:azamsaidov077@gmail.com"><span class="icon icon-envelope"></span><span class="text">azamsaidov077@gmail.com</span></a></li>
-	              </ul>
-	            </div>
-            </div>
-          </div>
         </div>
+    </nav>
+
+
+    <!-- Hero Section - DYNAMIC -->
+<section id="home" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <!-- Hello text -->
+                    <h3 class="text-warning">Hello! I'm</h3>
+
+                    <!-- Name -->
+                    <h1>
+                        {% if profile and profile.name %}
+                            {{ profile.name }}
+                        {% else %}
+                            Azam Saidov
+                        {% endif %}
+                    </h1>
+
+                    <!-- Title -->
+                    <h2>
+                        {% if profile and profile.title %}
+                            {{ profile.title }}
+                        {% else %}
+                            Full Stack Django Developer
+                        {% endif %}
+                    </h2>
+
+                    <!-- Description -->
+                    <p>
+                        {% if profile and profile.description %}
+                            {{ profile.description }}
+                        {% else %}
+                            10+ month experience in Django, PostgreSQL
+                        {% endif %}
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="mb-4">
+                        <a href="#contact" class="btn btn-light btn-lg me-3">Hire Me</a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg">My Projects</a>
+                        <a href="{% url 'download_portfolio' %}" class="btn btn-danger btn-lg ms-3">
+                            <i class="fas fa-download me-2"></i> Download CV
+                        </a>
+                    </div>
+
+                    <!-- Social Links - DYNAMIC -->
+                    <div class="social-links">
+                        {% if social_links %}
+                            {% for social in social_links %}
+                            <a href="{{ social.url }}" target="_blank" class="social-icon" title="{{ social.platform }}">
+                                <i class="{{ social.icon_class }}"></i>
+                            </a>
+                            {% endfor %}
+                        {% else %}
+                            <!-- Default Social Links -->
+                            <a href="https://github.com/azamsaidov077-alt" target="_blank" class="social-icon" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/azamjonsaidov" target="_blank" class="social-icon" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://t.me/vwvw7777" target="_blank" class="social-icon" title="Telegram">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="mailto:azamsaidov077@gmail.com" class="social-icon" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <!-- Profile Photo - DYNAMIC -->
+                {% if profile and profile.photo %}
+                <img src="{{ profile.photo.url }}" alt="{{ profile.name }}" class="profile-img">
+                {% else %}
+                <img src="{% static 'app1/images/my_picture_remove.jpg' %}" alt="Profile" class="profile-img">
+                {% endif %}
+
+                <!-- Stats (optional) -->
+                {% if profile %}
+                <div class="profile-stats mt-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <h3>{{ profile.projects_completed|default:"50" }}+</h3>
+                                <p>Projects</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <h3>{% if skills %}{{ skills|length }}{% else %}6{% endif %}+</h3>
+                                <p>Skills</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box">
+                                <h3>{% if services %}{{ services|length }}{% else %}3{% endif %}+</h3>
+                                <p>Services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know me better</p>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="about-content">
+                        <h3 class="mb-4">
+                            {% if profile %}
+                                {{ profile.name }}
+                            {% else %}
+                                Azam Saidov
+                            {% endif %}
+                        </h3>
+
+                        <p class="mb-4">
+                            {% if profile %}
+                                {{ profile.bio|linebreaks }}
+                            {% else %}
+                                I'm a passionate Full Stack Developer specializing in Django. I build scalable web applications, REST APIs, and enjoy solving complex problems with clean code.
+                            {% endif %}
+                        </p>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <ul class="about-info">
+                                    <li>
+                                        <strong>Name:</strong>
+                                        <span>
+                                            {% if profile %}
+                                                {{ profile.name }}
+                                            {% else %}
+                                                Azam Saidov
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>Email:</strong>
+                                        <span>
+                                            {% if profile %}
+                                                {{ profile.email }}
+                                            {% else %}
+                                                azamsaidov077@gmail.com
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>Phone:</strong>
+                                        <span>
+                                            {% if profile %}
+                                                {{ profile.phone }}
+                                            {% else %}
+                                                +998 93 620 62 22
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="about-info">
+                                    <li>
+                                        <strong>Address:</strong>
+                                        <span>
+                                            {% if profile %}
+                                                {{ profile.address }}
+                                            {% else %}
+                                                Bukhara, Uzbekistan
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>Freelance:</strong>
+                                        <span>
+                                            {% if profile %}
+                                                {{ profile.freelance_status }}
+                                            {% else %}
+                                                Available
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <strong>Projects Completed:</strong>
+                                        <span>
+                                            {% if profile %}
+                                                {{ profile.projects_completed }}
+                                            {% else %}
+                                                50+
+                                            {% endif %}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            {% if profile and profile.cv_file %}
+                            <a href="{{ profile.cv_file.url }}" class="btn btn-primary me-3" download>
+                                <i class="fas fa-download me-2"></i> Download CV
+                            </a>
+                            {% else %}
+                            <a href="#contact" class="btn btn-primary me-3">
+                                <i class="fas fa-envelope me-2"></i> Request CV
+                            </a>
+                            {% endif %}
+                            <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Skills Section - faqat database'dagi ma'lumotlar -->
+{% if skills %}
+<section id="skills" class="section bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+            <p>My technical expertise</p>
+        </div>
+
         <div class="row">
-          <div class="col-md-12 text-center">
-            <p>&copy; <script>document.write(new Date().getFullYear());</script> Azam Saidov. All rights reserved.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+            {% for skill in skills %}
+            <div class="col-lg-6 mb-4">
+                <div class="skill-item card h-100">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="card-title mb-0">{{ skill.name }}</h6>
+                            <span class="badge bg-primary">{{ skill.percentage }}%</span>
+                        </div>
 
-  <script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
-  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-  <script src="{% static 'js/aos.js' %}"></script>
-  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
-  <script src="{% static 'js/scrollax.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
-  
-  <script>
-  	// Contact form submission
-  	document.getElementById('contactForm').addEventListener('submit', function(e) {
-  		e.preventDefault();
-  		alert('Thank you for your message! I will get back to you soon.');
-  		this.reset();
-  	});
-  	
-  	// API Demo button
-  	document.querySelectorAll('a[href="/api/todos/"]').forEach(link => {
-  		link.addEventListener('click', function(e) {
-  			if(!confirm('This will open TODO API. Continue?')) {
-  				e.preventDefault();
-  			}
-  		});
-  	});
-  </script>
-    
-  </body>
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar" style="width: {{ skill.percentage }}%"></div>
+                        </div>
+
+                        {% if skill.description %}
+                        <p class="card-text text-muted small mt-2 mb-0">{{ skill.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-3">
+            <small class="text-muted">{{ skills|length }} skills from database</small>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+
+
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Professional web development services</p>
+            </div>
+
+            <div class="row">
+                {% if services %}
+                    {% for service in services %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="{{ service.icon }}"></i>
+                            </div>
+                            <h4>{{ service.title }}</h4>
+                            <p>{{ service.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Default Services -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Full Stack Development</h4>
+                            <p>Python, Django, HTML, CSS, JavaScript, Bootstrap</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4>Backend API Development</h4>
+                            <p>RESTful APIs, Authentication, Payment Integration</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>Database Design</h4>
+                            <p>PostgreSQL, Database Modeling, Query Optimization</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+   <!-- Projects Section - TO'G'RI DYNAMIC -->
+<section id="projects" class="section projects-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Some of my recent work</p>
+        </div>
+
+        <div class="row">
+            {% if projects %}
+                <!-- Dynamic Projects from Database -->
+                {% for project in projects %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" style="width: 100%; height: 200px; object-fit: cover;">
+                            {% else %}
+                            <div style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-code fa-3x text-white"></i>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="project-content">
+                            <h4>{{ project.title }}</h4>
+                            <p class="project-tech">{{ project.technologies }}</p>
+                            <p>{{ project.description|truncatechars:100 }}</p>
+                            <div class="mt-3">
+                                {% if project.github_url %}
+                                <a href="{{ project.github_url }}" target="_blank" class="btn btn-sm btn-primary me-2">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                                {% endif %}
+                                {% if project.live_url %}
+                                <a href="{{ project.live_url }}" target="_blank" class="btn btn-sm btn-success">
+                                    <i class="fas fa-external-link-alt me-1"></i> Live Demo
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- Default Projects when no projects in database -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <div style="height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-shopping-cart fa-3x text-white"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Online E-commerce Platform</h4>
+                            <p class="project-tech">Django, PostgreSQL, Bootstrap, Stripe</p>
+                            <p>Fully functional online store with payment system integration.</p>
+                            <div class="mt-3">
+                                <a href="https://github.com/azamsaidov077-alt/online-magazin.git" target="_blank" class="btn btn-sm btn-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <div style="height: 200px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-graduation-cap fa-3x text-white"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>Class Management System</h4>
+                            <p class="project-tech">Django, PostgreSQL, CRUD Operations</p>
+                            <p>Student and teacher management system with full CRUD operations.</p>
+                            <div class="mt-3">
+                                <a href="https://github.com/azamsaidov077-alt/class-crud.git" target="_blank" class="btn btn-sm btn-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <div style="height: 200px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-server fa-3x text-white"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4>RESTful API Services</h4>
+                            <p class="project-tech">Django REST Framework, JWT, Swagger</p>
+                            <p>JWT authentication, API documentation with Swagger/OpenAPI.</p>
+                            <div class="mt-3">
+                                <a href="https://github.com/azamsaidov077-alt/django-rest2.git" target="_blank" class="btn btn-sm btn-primary">
+                                    <i class="fab fa-github me-1"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}  <!-- BU YERDA endif QO'SHILDI -->
+        </div>
+    </div>
+</section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p>My professional journey</p>
+            </div>
+
+            <div class="timeline">
+                {% if experiences %}
+                    {% for exp in experiences %}
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>{{ exp.position }}</h4>
+                            <h5 class="text-primary">{{ exp.company }}</h5>
+                            <p class="timeline-date">{{ exp.start_date }} - {{ exp.end_date }}</p>
+                            <p>{{ exp.description|linebreaks }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Default Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Full Stack Developer</h4>
+                            <h5 class="text-primary">Freelance/Remote</h5>
+                            <p class="timeline-date">2025 - Present</p>
+                            <p>Developed web applications using Django for 10+ clients, built e-commerce and CRM systems, integrated REST APIs and payment systems.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Backend Developer</h4>
+                            <h5 class="text-primary">Tech Company, Tashkent</h5>
+                            <p class="timeline-date">2024 - 2025</p>
+                            <p>Collaborated with a team on a corporate web application project, created APIs using Django REST Framework, designed databases and managed migrations.</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+                <p>My educational background</p>
+            </div>
+
+            <div class="row">
+                {% if educations %}
+                    {% for edu in educations %}
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ edu.degree }}</h4>
+                                <h5 class="card-subtitle mb-2 text-primary">{{ edu.institution }}</h5>
+                                <p class="card-text text-muted">{{ edu.period }}</p>
+                                {% if edu.field_of_study %}
+                                <p class="card-text"><strong>Field of Study:</strong> {{ edu.field_of_study }}</p>
+                                {% endif %}
+                                {% if edu.description %}
+                                <p class="card-text">{{ edu.description }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Default Education -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Bachelor's Degree - Computer Engineering</h4>
+                                <h5 class="card-subtitle mb-2 text-primary">Tashkent Architecture University</h5>
+                                <p class="card-text text-muted">2024 - 2029</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Django & Django REST Framework Course</h4>
+                                <h5 class="card-subtitle mb-2 text-primary">Najot Ta'lim</h5>
+                                <p class="card-text text-muted">2025</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch for collaborations</p>
+            </div>
+
+            {% if messages %}
+            <div class="row mb-4">
+                <div class="col-12">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Contact Information</h4>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h6>Address</h6>
+                                <p>
+                                    {% if profile %}
+                                        {{ profile.address }}
+                                    {% else %}
+                                        Bukhara, Uzbekistan
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h6>Phone</h6>
+                                <p>
+                                    {% if profile %}
+                                        {{ profile.phone }}
+                                    {% else %}
+                                        +998 93 620 62 22
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h6>Email</h6>
+                                <p>
+                                    {% if profile %}
+                                        {{ profile.email }}
+                                    {% else %}
+                                        azamsaidov077@gmail.com
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Send me a message</h4>
+
+                        <form method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <textarea name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i> Send Message
+                            </button>
+                        </form>
+
+                        <div class="mt-4 text-center">
+                            <p class="text-muted">Or download my portfolio:</p>
+                            <a href="{% url 'download_portfolio' %}" class="btn btn-danger">
+                                <i class="fas fa-download me-2"></i> Download Portfolio PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>
+                        {% if profile %}
+                            {{ profile.name }}
+                        {% else %}
+                            Azam Saidov
+                        {% endif %}
+                    </h5>
+                    <p class="mt-3">
+                        {% if profile and profile.bio %}
+                            {{ profile.bio|truncatechars:150 }}
+                        {% else %}
+                            Full Stack Developer specializing in Django and React. Building modern web applications with clean code and best practices.
+                        {% endif %}
+                    </p>
+
+                    <div class="social-links mt-4">
+                        {% if social_links %}
+                            {% for social in social_links %}
+                            <a href="{{ social.url }}" target="_blank" class="social-icon">
+                                <i class="{{ social.icon_class }}"></i>
+                            </a>
+                            {% endfor %}
+                        {% else %}
+                            <a href="https://github.com/azamsaidov077-alt" target="_blank" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/azamsaidov" target="_blank" class="social-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://t.me/azamsaidov" target="_blank" class="social-icon">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#services">Full Stack Development</a></li>
+                        <li><a href="#services">Backend API Development</a></li>
+                        <li><a href="#services">Database Design</a></li>
+                        <li><a href="#services">E-commerce Solutions</a></li>
+                        <li><a href="#services">Web Application Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contact Info</h5>
+                    <div class="contact-info-small">
+                        <p class="mb-2">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            {% if profile %}
+                                {{ profile.address }}
+                            {% else %}
+                                Bukhara, Uzbekistan
+                            {% endif %}
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            {% if profile %}
+                                {{ profile.phone }}
+                            {% else %}
+                                +998 93 620 62 22
+                            {% endif %}
+                        </p>
+                        <p class="mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            {% if profile %}
+                                {{ profile.email }}
+                            {% else %}
+                                azamsaidov077@gmail.com
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="/admin/" class="btn btn-warning btn-sm">
+                            <i class="fas fa-lock me-1"></i> Admin Panel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; <script>document.write(new Date().getFullYear());</script>
+                    {% if profile %}
+                        {{ profile.name }}
+                    {% else %}
+                        Azam Saidov
+                    {% endif %}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission animation
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function() {
+                const submitBtn = this.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Sending...';
+                    submitBtn.disabled = true;
+                }
+            });
+        }
+
+        // Initialize animations on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Current year for copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
 </html>

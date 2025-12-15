@@ -9682,3 +9682,165 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+/*!* Qora fon va oq matnlar uchun *!*/
+/*body {*/
+/*    background-color: #000 !important;*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*!* Hero section qora fon *!*/
+/*.hero {*/
+/*    background-color: #000 !important;*/
+/*}*/
+
+/*!* Navbar qora fon *!*/
+/*.ftco_navbar {*/
+/*    background-color: #000 !important;*/
+/*}*/
+
+/*!* Barcha sectionlar uchun qora fon *!*/
+/*section {*/
+/*    background-color: #000 !important;*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*!* Footer qora fon *!*/
+/*.ftco-footer {*/
+/*    background-color: #000 !important;*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*!* Matn ranglari oq *!*/
+/*h1, h2, h3, h4, h5, h6, p, span, li, a {*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*!* Linklar hover holati *!*/
+/*a:hover {*/
+/*    color: #10b981 !important;*/
+/*}*/
+
+/*!* Tugmalar yashil rangda *!*/
+/*.btn-primary {*/
+/*    background-color: #10b981 !important;*/
+/*    border-color: #10b981 !important;*/
+/*    color: #000 !important;*/
+/*}*/
+
+/*.btn-primary:hover {*/
+/*    background-color: #0da271 !important;*/
+/*    border-color: #0da271 !important;*/
+/*}*/
+
+/*.btn-success {*/
+/*    background-color: #10b981 !important;*/
+/*    border-color: #10b981 !important;*/
+/*    color: #000 !important;*/
+/*}*/
+
+/*.btn-success:hover {*/
+/*    background-color: #0da271 !important;*/
+/*    border-color: #0da271 !important;*/
+/*}*/
+
+/*!* Navbar linklari *!*/
+/*.navbar-nav .nav-link {*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*.navbar-nav .nav-link:hover {*/
+/*    color: #10b981 !important;*/
+/*}*/
+
+/*!* Progress barlar yashil *!*/
+/*.progress-bar {*/
+/*    background-color: #10b981 !important;*/
+/*}*/
+
+/*!* Services kartalari *!*/
+/*.services-1 {*/
+/*    background-color: #111 !important;*/
+/*    border-color: #333 !important;*/
+/*}*/
+
+/*.services-1:hover {*/
+/*    background-color: #222 !important;*/
+/*    border-color: #10b981 !important;*/
+/*}*/
+
+/*!* Project kartalari *!*/
+/*.project {*/
+/*    background-color: #111 !important;*/
+/*}*/
+
+/*.project .overlay {*/
+/*    background-color: rgba(0, 0, 0, 0.7) !important;*/
+/*}*/
+
+/*!* Contact form *!*/
+/*.bg-light {*/
+/*    background-color: #111 !important;*/
+/*}*/
+
+/*.form-control {*/
+/*    background-color: #222 !important;*/
+/*    border-color: #333 !important;*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*.form-control:focus {*/
+/*    background-color: #222 !important;*/
+/*    border-color: #10b981 !important;*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*!* Footer widget *!*/
+/*.ftco-footer-widget .list-unstyled a {*/
+/*    color: #ccc !important;*/
+/*}*/
+
+/*.ftco-footer-widget .list-unstyled a:hover {*/
+/*    color: #10b981 !important;*/
+/*}*/
+
+/*!* Social icons *!*/
+/*.ftco-footer-social a span {*/
+/*    color: #fff !important;*/
+/*}*/
+
+/*.ftco-footer-social a:hover span {*/
+/*    color: #10b981 !important;*/
+/*}*/
+
+/*!* Resume section *!*/
+/*.resume-wrap {*/
+/*    background-color: #111 !important;*/
+/*    border-color: #333 !important;*/
+/*}*/
+
+/*!* Hire me section *!*/
+/*.ftco-hireme {*/
+/*    background-color: #000 !important;*/
+/*}*/
+
+/*.ftco-hireme .overlay {*/
+/*    background-color: rgba(0, 0, 0, 0.8) !important;*/
+/*}*/
+
+/*!* About section *!*/
+/*.img-about {*/
+/*    background-color: #111 !important;*/
+/*}*/
+
+/*!* Counter *!*/
+/*.counter-wrap {*/
+/*    background-color: #111 !important;*/
+/*}*/
+
+/*!* Contact info boxes *!*/
+/*.contact-info .box {*/
+/*    background-color: #111 !important;*/
+/*    border-color: #333 !important;*/
+/*}*/
